@@ -1,16 +1,11 @@
 package com.example.sparta.repository;
 
 import com.example.sparta.dto.UserResponseDto;
-import com.example.sparta.entity.User;
-import org.springframework.dao.DataAccessException;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
 import java.util.List;
 
 public class UserRepository {

@@ -2,7 +2,6 @@ package com.example.sparta.service;
 
 import com.example.sparta.dto.UserResponseDto;
 import com.example.sparta.repository.UserRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 

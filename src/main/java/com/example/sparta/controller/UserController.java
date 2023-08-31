@@ -1,16 +1,11 @@
 package com.example.sparta.controller;
 
 import com.example.sparta.dto.UserResponseDto;
-import com.example.sparta.entity.User;
 import com.example.sparta.service.UserService;
-import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
