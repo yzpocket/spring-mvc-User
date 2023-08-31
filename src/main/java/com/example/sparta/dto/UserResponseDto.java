@@ -9,13 +9,13 @@ import lombok.Setter;
 @NoArgsConstructor
 public class UserResponseDto {
 
-    private Long id;
+    private Long userId;
     private String name;
     private String email;
     private String pw;
 
     public UserResponseDto(Long id, String name, String email, String pw) {
-        this.id = id;
+        this.userId = id;
         this.name = name;
         this.email = email;
         this.pw = pw;

@@ -9,12 +9,12 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class User {
-    private Long id;
+    private Long userId;
     private String name;
     private String email;
     private String pw;
     public User(UserRequestDto requestDto) {
-        this.id = requestDto.getId();
+        this.userId = requestDto.getUserId();
         this.name = requestDto.getName();
         this.email = requestDto.getEmail();
         this.pw = requestDto.getPw();

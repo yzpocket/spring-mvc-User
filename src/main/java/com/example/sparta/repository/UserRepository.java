@@ -24,7 +24,7 @@ public class UserRepository {
         // DB 조회
         String sql = "SELECT * FROM user";
 
-        return jdbcTemplate.query(sql, new RowMapper<UserResponseDto>() {
+        return jdbcTemplate.query(sql, new RowMapper<UserResponseDto>() { // <--- RowMapper<>() 부분 IDE가 람다식으로 추천해주는데, 람다식 아직잘모르니 나중에 공부하면 바꿔보기!!
             @Override
             public UserResponseDto mapRow(ResultSet rs, int rowNum) throws SQLException {
                 // SQL 의 결과로 받아온 User 데이터들을 UserResponseDto 타입으로 변환해줄 메서드
@@ -44,7 +44,7 @@ public class UserRepository {
 
         UserResponseDto userResponseDto = jdbcTemplate.queryForObject(sql, new Object[]{id}, (resultSet, rowNum) -> {
             UserResponseDto user = new UserResponseDto();
-            user.setId(resultSet.getLong("id"));
+            user.setUserId(resultSet.getLong("id"));
             user.setName(resultSet.getString("name"));
             user.setEmail(resultSet.getString("email"));
             user.setPw(resultSet.getString("pw"));
