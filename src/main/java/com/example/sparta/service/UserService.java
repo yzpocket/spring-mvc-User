@@ -22,7 +22,9 @@ public class UserService {
         UserRepository memoRepository = new UserRepository(jdbcTemplate);
         return memoRepository.findAllUser();
     }
-    //public UserResponseDto findUser((구현)) {
-    //    (구현)
-    //}
+    public UserResponseDto findUser(Long id) {
+        // DB 조회
+        UserRepository memoRepository = new UserRepository(jdbcTemplate);
+        return memoRepository.findUserById(id);
+    }
 }

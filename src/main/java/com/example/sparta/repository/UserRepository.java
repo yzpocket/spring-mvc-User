@@ -1,11 +1,16 @@
 package com.example.sparta.repository;
 
 import com.example.sparta.dto.UserResponseDto;
+import com.example.sparta.entity.User;
+import org.springframework.dao.DataAccessException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.List;
 
 public class UserRepository {
@@ -30,5 +35,25 @@ public class UserRepository {
                 return new UserResponseDto(id, name, email, pw);
             }
         });
+    }
+
+    // id로 회원 찾기
+    public UserResponseDto findUserById(Long id) {
+        // DB 조회
+        String sql = "SELECT * FROM user WHERE id = ?";
+
+        UserResponseDto userResponseDto = jdbcTemplate.queryForObject(sql, new Object[]{id}, (resultSet, rowNum) -> {
+            UserResponseDto user = new UserResponseDto();
+            user.setId(resultSet.getLong("id"));
+            user.setName(resultSet.getString("name"));
+            user.setEmail(resultSet.getString("email"));
+            user.setPw(resultSet.getString("pw"));
+            return user;
+        });
+
+        if (userResponseDto == null) { //예외 던지기 여기가 가장 낮은 계층이라서 여기서 예외처리했음.
+            throw new NullPointerException("사용자가 없습니다.");
+        }
+        return userResponseDto;
     }
 }
